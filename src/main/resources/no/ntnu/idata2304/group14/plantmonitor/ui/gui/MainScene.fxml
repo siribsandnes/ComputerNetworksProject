@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/gui.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idata2304.group14.plantmonitor.ui.MainSceneController">
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="TOP_RIGHT">
+         <children>
+            <GridPane alignment="CENTER" HBox.hgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" />
+              </rowConstraints>
+               <children>
+                  <Label text="&quot;Plant name&quot;" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="Moisture level:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label text="Image" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Label text="Message" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+               </children>
+            </GridPane>
+            <GridPane alignment="CENTER" layoutX="260.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="&quot;Plant name&quot;" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="Moisture level:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label text="Image" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Label text="Message" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane alignment="CENTER" layoutX="310.0" layoutY="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="&quot;Plant name&quot;" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label text="Moisture level:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Label text="Image" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Label text="Message" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="63.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Delete plant" />
+            <Button mnemonicParsing="false" text="Add plant" />
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="TOP_RIGHT">
+         <children>
+            <Label text="Plant Monitor" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
