@@ -2,16 +2,23 @@ package no.ntnu.idata2304.group14.plantmonitor.data;
 
 public class Plant {
     String name;
-    Planttype type;
+    String type;
     int sensorID;
     double currentMoistureLevel;
     double desiredMoistureLevel;
 
-    public Plant(String name, Planttype type, int sensorID, double currentMoistureLevel, double desiredMoistureLevel) {
+    public Plant(String name, String type, int sensorID, double currentMoistureLevel, double desiredMoistureLevel) {
         this.name = name;
         this.type = type;
         this.sensorID = sensorID;
         this.currentMoistureLevel = currentMoistureLevel;
+        this.desiredMoistureLevel = desiredMoistureLevel;
+    }
+
+    public Plant(String name, String type, int sensorID, double desiredMoistureLevel) {
+        this.name = name;
+        this.type = type;
+        this.sensorID = sensorID;
         this.desiredMoistureLevel = desiredMoistureLevel;
     }
 
@@ -24,11 +31,11 @@ public class Plant {
     }
 
 
-    public Planttype getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Planttype type) {
+    public void setType(String type) {
         this.type = type;
     }
 
