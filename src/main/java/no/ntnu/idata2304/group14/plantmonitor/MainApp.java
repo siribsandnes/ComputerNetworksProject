@@ -12,7 +12,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent mainPaneLoader = FXMLLoader.load(getClass().getResource("ui/gui/MainScene.fxml"));
+        Parent mainPaneLoader = FXMLLoader.load(getClass().getResource("ui/gui/MainSceneExtra.fxml"));
         primaryStage.setScene(new Scene(mainPaneLoader,1000,700));
 
         primaryStage.setTitle("Plant monitor");
