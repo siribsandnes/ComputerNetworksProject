@@ -18,8 +18,8 @@ import java.util.Map;
 
 //TODO: This class
 public class MainSceneController {
-    private String connectURL ="tcp://10.0.0.3:1883";
-    private String baseTopic = "topic/sensor-";
+    private String connectURL ="tcp://129.241.152.12:1883";
+    private String baseTopic = "inashouse/house/livingroom/moisture/group14/";
 
     private SensorDataReciever sensorDataReciever;
     private Map<Integer, Label> sensorMap = new HashMap<>();
