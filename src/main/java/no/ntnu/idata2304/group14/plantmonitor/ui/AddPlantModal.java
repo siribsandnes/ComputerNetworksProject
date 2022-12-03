@@ -1,10 +1,12 @@
 package no.ntnu.idata2304.group14.plantmonitor.ui;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -13,9 +15,9 @@ import no.ntnu.idata2304.group14.plantmonitor.data.Plant;
 
 public class AddPlantModal {
     private Stage window;
-    private Label nameLabel = new Label("Plant name:");
-    private Label idLabel = new Label("Sensor id:");
-    private Label typeLabel = new Label("Plant type:");
+    private Label nameLabel = new Label("Plant name:          ");
+    private Label idLabel = new Label("Sensor id:              ");
+    private Label typeLabel = new Label("Plant type:              ");
 
     private Label desiredMoistureLabel = new Label("Desired Moisture:");
 
@@ -61,6 +63,9 @@ public class AddPlantModal {
         buttonBox.setPrefWidth(Double.MAX_VALUE);
         buttonBox.getChildren().addAll(okButton, cancelButton);
         buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.setPadding(new Insets(10, 0, 0, 0));
+
+
         layout.getChildren().addAll(nameBox, idBox, typeBox, desiredMoistureBox, buttonBox);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 300, 250);
