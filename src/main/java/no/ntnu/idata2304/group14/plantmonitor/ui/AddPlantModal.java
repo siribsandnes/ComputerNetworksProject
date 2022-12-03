@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import no.ntnu.idata2304.group14.plantmonitor.data.Plant;
@@ -43,6 +44,13 @@ public class AddPlantModal {
         layout = new VBox(10);
         layout.setPrefWidth(Double.MAX_VALUE);
 
+        HBox titleBox = new HBox(5);
+        Label titleLabel = new Label("Add plant");
+        titleLabel.setFont(new Font(20));
+        titleBox.getChildren().add(titleLabel);
+        titleBox.setAlignment(Pos.CENTER);
+
+
         HBox nameBox = new HBox(5);
         nameBox.getChildren().addAll(nameLabel, nameField);
         nameBox.setAlignment(Pos.CENTER);
@@ -66,7 +74,7 @@ public class AddPlantModal {
         buttonBox.setPadding(new Insets(10, 0, 0, 0));
 
 
-        layout.getChildren().addAll(nameBox, idBox, typeBox, desiredMoistureBox, buttonBox);
+        layout.getChildren().addAll(titleBox,nameBox, idBox, typeBox, desiredMoistureBox, buttonBox);
         layout.setAlignment(Pos.CENTER);
         Scene scene = new Scene(layout, 300, 250);
         window.setScene(scene);

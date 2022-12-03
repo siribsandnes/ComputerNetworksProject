@@ -6,9 +6,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idata2304.group14.plantmonitor.ui.MainSceneController">
+<BorderPane  stylesheets="@../css/gui.css"  style="-fx-background-color: white;" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idata2304.group14.plantmonitor.ui.MainSceneController">
    <top>
-      <Label alignment="CENTER" text="Plant Monitor App" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" text="Plant Monitor" id="title" BorderPane.alignment="CENTER">
          <padding>
             <Insets top="15.0" />
          </padding>
