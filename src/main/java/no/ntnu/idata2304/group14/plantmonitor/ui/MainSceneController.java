@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
@@ -43,6 +44,8 @@ public class MainSceneController {
         if(plant != null){
             VBox plantvBox = createPlantGUIElement(plant);
             flowPane.getChildren().add(plantvBox);
+            flowPane.setAlignment(Pos.CENTER);
+            flowPane.setHgap(20);
             boolean success = sensorDataReciever.subscribeTopic(baseTopic + plant.getSensorID());
         }else{
             System.out.println("No plant to add");
@@ -78,10 +81,10 @@ public class MainSceneController {
      * @return vBox to display
      */
     private VBox createPlantGUIElement(Plant plant){
-        VBox vBox = new VBox(80);
+        VBox vBox = new VBox(60);
 
         vBox.setPadding(new Insets(10,10,10,10));
-        vBox.setBackground(new Background(new BackgroundFill(Color.rgb(200, 200, 250), CornerRadii.EMPTY, Insets.EMPTY)));
+        vBox.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255), CornerRadii.EMPTY, Insets.EMPTY)));
 
         HBox plantNameBox = new HBox(20);
         plantNameBox.getChildren().addAll(new Label("Plant Name:"), new Label(plant.getName()));
@@ -101,6 +104,7 @@ public class MainSceneController {
         currentMoistureLevelBox.getChildren().addAll(new Label("Current mosture:"), sensorValue);
 
         vBox.getChildren().addAll(plantNameBox, sensorIdBox, plantTypeBox, desiredMoistureLevelBox, currentMoistureLevelBox);
+
         sensorMap.put(plant.getSensorID(), sensorValue);
 
         return vBox;

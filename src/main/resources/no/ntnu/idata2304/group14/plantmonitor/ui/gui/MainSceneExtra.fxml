@@ -20,11 +20,11 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" text="Delete Plant">
+            <Button alignment="CENTER" mnemonicParsing="false" text="Delete Plant"  maxHeight="50" maxWidth="150" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></Button>
-            <Button fx:id="addPlantButton"  alignment="CENTER" mnemonicParsing="false" onAction="#onAddPlantButton"  text="Add Plant">
+            <Button fx:id="addPlantButton"  alignment="CENTER" mnemonicParsing="false" onAction="#onAddPlantButton"  text="Add Plant" maxHeight="50" maxWidth="150" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></Button>
@@ -32,6 +32,6 @@
       </HBox>
    </bottom>
    <center>
-      <FlowPane fx:id="flowPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <FlowPane fx:id="flowPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" style="-fx-background-color: #097969"/>
    </center>
 </BorderPane>

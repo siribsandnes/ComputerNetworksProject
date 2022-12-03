@@ -3,3 +3,10 @@
     -fx-text-fill: #097969;
     -fx-font-size: 30px;
 }
+
+.button{
+    -fx-background-color: #097969;
+    -fx-text-fill: white;
+    -fx-font-size: 17px;
+}
+
