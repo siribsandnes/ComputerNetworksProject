@@ -14,16 +14,21 @@ import no.ntnu.idata2304.group14.plantmonitor.data.Plant;
 import no.ntnu.idata2304.group14.plantmonitor.logic.SensorDataReciever;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 //TODO: This class
 public class MainSceneController {
+    
+    private HashMap<Plant, VBox> plants;
     private String connectURL ="tcp://129.241.152.12:1883";
     private String baseTopic = "inashouse/house/livingroom/moisture/group14/";
 
     private SensorDataReciever sensorDataReciever;
     private Map<Integer, Label> sensorMap = new HashMap<>();
+
+    private Map<Integer, Label> feedbackMap = new HashMap<>();
 
     @FXML
     private Button deletePlantButton;
@@ -34,6 +39,11 @@ public class MainSceneController {
     @FXML
     private FlowPane flowPane;
 
+
+    public MainSceneController() {
+        this.plants = new HashMap<>();
+    }
+
     @FXML
     private void onAddPlantButton(ActionEvent event){
         System.out.println("Adding plant...");
@@ -43,6 +53,7 @@ public class MainSceneController {
 
         if(plant != null){
             VBox plantvBox = createPlantGUIElement(plant);
+            this.plants.put(plant, plantvBox);
             flowPane.getChildren().add(plantvBox);
             flowPane.setAlignment(Pos.CENTER);
             flowPane.setHgap(20);
@@ -55,7 +66,10 @@ public class MainSceneController {
 
     @FXML
     private void onDeletePlantButton(ActionEvent event){
-
+        DeletePlantModal deletePlantModal = new DeletePlantModal(this.plants);
+        Plant plant = deletePlantModal.deletePlant();
+        this.plants.remove(plant);
+        updatePlantView();
     }
 
     @FXML
@@ -66,7 +80,17 @@ public class MainSceneController {
            sensorDataReciever.connect(((sensorID, newValue) -> {
                System.out.println("Controller: " + sensorID + ": " + newValue);
                final Label valueLabel = sensorMap.get(sensorID);
-               Platform.runLater(() -> valueLabel.setText(Integer.toString(newValue)));
+               Platform.runLater(() -> valueLabel.setText(Double.toString(newValue)));
+
+               //DISKUTER MED PAPPA
+               for(Map.Entry<Plant,VBox> plantVBoxEntry : this.plants.entrySet()){
+                   Plant plant = plantVBoxEntry.getKey();
+                   if(plant.getSensorID() == sensorID){
+                       plant.setCurrentMoistureLevel(newValue);
+                       System.out.println("Plant " + plant.getName() + " current moist" + plant.getCurrentMoistureLevel());
+                   }
+
+               }
            }));
 
         } catch(MqttException mqttException){
@@ -81,32 +105,56 @@ public class MainSceneController {
      * @return vBox to display
      */
     private VBox createPlantGUIElement(Plant plant){
-        VBox vBox = new VBox(60);
+        VBox vBox = new VBox(25);
 
         vBox.setPadding(new Insets(10,10,10,10));
         vBox.setBackground(new Background(new BackgroundFill(Color.rgb(255,255,255), CornerRadii.EMPTY, Insets.EMPTY)));
+        vBox.setPrefWidth(250);
+        vBox.setPrefHeight(270);
+        vBox.setAlignment(Pos.CENTER);
 
         HBox plantNameBox = new HBox(20);
-        plantNameBox.getChildren().addAll(new Label("Plant Name:"), new Label(plant.getName()));
+        Label plantName = new Label(plant.getName());
+        plantName.setId("underTitle");
+        plantNameBox.getChildren().add(plantName);
+        plantNameBox.setAlignment(Pos.CENTER);
+
 
         HBox sensorIdBox = new HBox(20);
         sensorIdBox.getChildren().addAll(new Label("Sensor id:"), new Label(Integer.toString(plant.getSensorID())));
+        sensorIdBox.setAlignment(Pos.CENTER);
 
         HBox plantTypeBox = new HBox(20);
         plantTypeBox.getChildren().addAll(new Label("Plant Type:"), new Label(plant.getType().toString()));
-
+        plantTypeBox.setAlignment(Pos.CENTER);
 
         HBox desiredMoistureLevelBox = new HBox(20);
-        desiredMoistureLevelBox.getChildren().addAll(new Label("Desired mosisture:"), new Label(Double.toString(plant.getDesiredMoistureLevel())));
+        desiredMoistureLevelBox.getChildren().addAll(new Label("Desired moisture:"), new Label(Double.toString(plant.getDesiredMoistureLevel())));
+        desiredMoistureLevelBox.setAlignment(Pos.CENTER);
 
         HBox currentMoistureLevelBox = new HBox(20);
         Label sensorValue = new Label( Double.toString(plant.getCurrentMoistureLevel()));
-        currentMoistureLevelBox.getChildren().addAll(new Label("Current mosture:"), sensorValue);
+        currentMoistureLevelBox.getChildren().addAll(new Label("Current moisture:"), sensorValue);
+        currentMoistureLevelBox.setAlignment(Pos.CENTER);
+
+        HBox moistureFeedback = new HBox();
+        Label moistureLabel = new Label();
+        moistureFeedback.getChildren().add(moistureLabel);
+        moistureFeedback.setAlignment(Pos.CENTER);
+
 
         vBox.getChildren().addAll(plantNameBox, sensorIdBox, plantTypeBox, desiredMoistureLevelBox, currentMoistureLevelBox);
-
+        feedbackMap.put(plant.getSensorID(), moistureLabel);
         sensorMap.put(plant.getSensorID(), sensorValue);
 
         return vBox;
+    }
+
+    private void updatePlantView(){
+        flowPane.getChildren().clear();
+        for(Map.Entry<Plant,VBox> plantVBoxEntry : this.plants.entrySet()){
+            flowPane.getChildren().add(plantVBoxEntry.getValue());
+        }
+
     }
 }

@@ -87,7 +87,7 @@ public class SensorDataReciever implements MqttCallback {
 
         int sensorId = Integer.parseInt(s.substring(s.length() - 1));
         String[] splitStr = mqttMessage.toString().split(":");
-        int value = Integer.parseInt(splitStr[1].trim());
+        double value = Double.parseDouble(splitStr[1].trim());
         callback.updateMessageRecieved(sensorId, value);
     }
 

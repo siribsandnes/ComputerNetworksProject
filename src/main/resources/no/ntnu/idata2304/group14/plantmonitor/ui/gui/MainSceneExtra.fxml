@@ -6,9 +6,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane  stylesheets="@../css/gui.css"  style="-fx-background-color: white;" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idata2304.group14.plantmonitor.ui.MainSceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@../css/gui.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.idata2304.group14.plantmonitor.ui.MainSceneController">
    <top>
-      <Label alignment="CENTER" text="Plant Monitor" id="title" BorderPane.alignment="CENTER">
+      <Label id="title" alignment="CENTER" text="Plant Monitor" BorderPane.alignment="CENTER">
          <padding>
             <Insets top="15.0" />
          </padding>
@@ -20,11 +20,11 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" text="Delete Plant"  maxHeight="50" maxWidth="150" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150">
+            <Button fx:id="deletePlantButton" onAction="#onDeletePlantButton" alignment="CENTER" maxHeight="50" maxWidth="150" minHeight="50" minWidth="150" mnemonicParsing="false" prefHeight="50" prefWidth="150" text="Delete Plant">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></Button>
-            <Button fx:id="addPlantButton"  alignment="CENTER" mnemonicParsing="false" onAction="#onAddPlantButton"  text="Add Plant" maxHeight="50" maxWidth="150" minHeight="50" minWidth="150" prefHeight="50" prefWidth="150">
+            <Button fx:id="addPlantButton" alignment="CENTER" maxHeight="50" maxWidth="150" minHeight="50" minWidth="150" mnemonicParsing="false" onAction="#onAddPlantButton" prefHeight="50" prefWidth="150" text="Add Plant">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></Button>
@@ -32,6 +32,14 @@
       </HBox>
    </bottom>
    <center>
-      <FlowPane fx:id="flowPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" style="-fx-background-color: #097969"/>
+      <VBox style="-fx-background-color: #2E8B57;" BorderPane.alignment="CENTER" alignment="CENTER">
+         <children>
+            <VBox>
+               <children>
+                  <FlowPane fx:id="flowPane"/>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
    </center>
 </BorderPane>
