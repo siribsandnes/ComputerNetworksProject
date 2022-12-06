@@ -20,7 +20,7 @@ public interface DataRepository {
      *
      * @return
      */
-    boolean deletePlant();
+    boolean deletePlant(Plant plant);
 
     /**
      *

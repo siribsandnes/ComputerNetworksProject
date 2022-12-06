@@ -58,8 +58,19 @@ public class SqlDataRepository implements DataRepository {
     }
 
     @Override
-    public boolean deletePlant() {
-        return false;
+    public boolean deletePlant(Plant plant) {
+        boolean deleted = false;
+        try{
+            String query = "DELETE FROM Plant " + "WHERE plantId = ?";
+            PreparedStatement s = connection.prepareStatement(query);
+            s.setInt(1,plant.getSensorID());
+            int updatedRowCount = s.executeUpdate();
+            deleted = updatedRowCount == 1;
+        }catch (SQLException e) {
+            System.out.println("An error occured when deleting a plant to the database");
+        }
+
+        return deleted;
     }
 
     @Override

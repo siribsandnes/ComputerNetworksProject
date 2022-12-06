@@ -75,6 +75,9 @@ public class MainSceneController {
         DeletePlantModal deletePlantModal = new DeletePlantModal(this.plants);
         Plant plant = deletePlantModal.deletePlant();
         this.plants.remove(plant);
+        if(repository.deletePlant(plant)){
+            System.out.println("Plant was delted from database");
+        }
         updatePlantView();
     }
 
