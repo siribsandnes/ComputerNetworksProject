@@ -10,8 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import no.ntnu.idata2304.group14.plantmonitor.data.DataRepository;
 import no.ntnu.idata2304.group14.plantmonitor.data.Plant;
 import no.ntnu.idata2304.group14.plantmonitor.logic.SensorDataReciever;
+import no.ntnu.idata2304.group14.plantmonitor.logic.SqlDataRepository;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.util.ArrayList;
@@ -29,6 +31,10 @@ public class MainSceneController {
     private Map<Integer, Label> sensorMap = new HashMap<>();
 
     private Map<Integer, Label> feedbackMap = new HashMap<>();
+
+    private DataRepository repository = new SqlDataRepository();
+
+
 
     @FXML
     private Button deletePlantButton;
@@ -76,28 +82,32 @@ public class MainSceneController {
     void initialize(){
         System.out.println("Init");
         sensorDataReciever = new SensorDataReciever(connectURL);
-        try{
-           sensorDataReciever.connect(((sensorID, newValue) -> {
-               System.out.println("Controller: " + sensorID + ": " + newValue);
-               final Label valueLabel = sensorMap.get(sensorID);
-               Platform.runLater(() -> valueLabel.setText(Double.toString(newValue)));
+        if(repository.connect()){
+            try{
+                sensorDataReciever.connect(((sensorID, newValue) -> {
+                    System.out.println("Controller: " + sensorID + ": " + newValue);
+                    final Label valueLabel = sensorMap.get(sensorID);
+                    Platform.runLater(() -> valueLabel.setText(Double.toString(newValue)));
 
-               //DISKUTER MED PAPPA HER LEGGES current moisture til I riktig PLANT ELEMENT
-               for(Map.Entry<Plant,VBox> plantVBoxEntry : this.plants.entrySet()){
-                   Plant plant = plantVBoxEntry.getKey();
-                   if(plant.getSensorID() == sensorID){
-                       plant.setCurrentMoistureLevel(newValue);
-                       System.out.println("Plant " + plant.getName() + " current moist" + plant.getCurrentMoistureLevel());
-                   }
+                    //DISKUTER MED PAPPA HER LEGGES current moisture til I riktig PLANT ELEMENT
+                    for(Map.Entry<Plant,VBox> plantVBoxEntry : this.plants.entrySet()){
+                        Plant plant = plantVBoxEntry.getKey();
+                        if(plant.getSensorID() == sensorID){
+                            plant.setCurrentMoistureLevel(newValue);
+                            System.out.println("Plant " + plant.getName() + " current moist" + plant.getCurrentMoistureLevel());
+                        }
 
-                   final Label feedbackLabel = feedbackMap.get(sensorID);
-                   updateMoistureFeedback(feedbackLabel, plant);
-               }
+                        final Label feedbackLabel = feedbackMap.get(sensorID);
+                        updateMoistureFeedback(feedbackLabel, plant);
+                    }
 
-           }));
+                }));
 
-        } catch(MqttException mqttException){
-            mqttException.printStackTrace();
+            } catch(MqttException mqttException){
+                mqttException.printStackTrace();
+            }
+        }else {
+            System.err.println("Could not connect to database");
         }
     }
 
