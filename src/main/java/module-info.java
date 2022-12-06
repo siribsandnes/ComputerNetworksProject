@@ -3,6 +3,7 @@ module plantmonitor {
     requires javafx.fxml;
     requires org.eclipse.paho.client.mqttv3;
     requires java.sql;
+    requires mysql.connector.java;
 
     exports no.ntnu.idata2304.group14.plantmonitor;
     exports no.ntnu.idata2304.group14.plantmonitor.ui;

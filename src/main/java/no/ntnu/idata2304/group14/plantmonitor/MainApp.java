@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import no.ntnu.idata2304.group14.plantmonitor.ui.MainSceneController;
 
 public class MainApp extends Application {
 

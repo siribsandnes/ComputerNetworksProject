@@ -23,7 +23,7 @@ public class SqlDataRepository implements DataRepository {
 
      try{
          Class.forName("com.mysql.cj.jdbc.Driver");
-         Connection connection = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD);
+         this.connection = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD);
          success = true;
      } catch (ClassNotFoundException e){
          e.printStackTrace();
