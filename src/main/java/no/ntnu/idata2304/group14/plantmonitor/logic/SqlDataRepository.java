@@ -61,7 +61,7 @@ public class SqlDataRepository implements DataRepository {
     public boolean deletePlant(Plant plant) {
         boolean deleted = false;
         try{
-            String query = "DELETE FROM Plant " + "WHERE plantId = ?";
+            String query = "DELETE FROM Plant " + "WHERE sensorId = ?";
             PreparedStatement s = connection.prepareStatement(query);
             s.setInt(1,plant.getSensorID());
             int updatedRowCount = s.executeUpdate();
@@ -74,7 +74,24 @@ public class SqlDataRepository implements DataRepository {
     }
 
     @Override
-    public boolean addPlant() {
-        return false;
+    public boolean addPlant(Plant plant) {
+        boolean added = false;
+
+        try{
+            String query = "INSERT INTO Plant (plantName, plantType, sensorId, desiredMoisture)VALUES(?,?,?,?)";
+            PreparedStatement s = connection.prepareStatement(query);
+            s.setString(1, plant.getName());
+            s.setString(2, plant.getType());
+            s.setInt(3, plant.getSensorID());
+            s.setDouble(4, plant.getDesiredMoistureLevel());
+
+            int updatedRowCount = s.executeUpdate();
+            added = updatedRowCount == 1;
+        }catch (SQLException e) {
+            System.out.println("An error occured when adding a a plant to the database");
+        }
+
+        return added;
+
     }
 }

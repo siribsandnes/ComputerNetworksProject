@@ -26,5 +26,5 @@ public interface DataRepository {
      *
      * @return
      */
-    boolean addPlant();
+    boolean addPlant(Plant plant);
 }

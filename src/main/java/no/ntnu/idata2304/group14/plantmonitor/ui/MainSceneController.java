@@ -64,6 +64,9 @@ public class MainSceneController {
             flowPane.setAlignment(Pos.CENTER);
             flowPane.setHgap(20);
             boolean success = sensorDataReciever.subscribeTopic(baseTopic + plant.getSensorID());
+            if(repository.addPlant(plant)){
+                System.out.println("Plant was added to database");
+            }
         }else{
             System.out.println("No plant to add");
         }
@@ -74,9 +77,10 @@ public class MainSceneController {
     private void onDeletePlantButton(ActionEvent event){
         DeletePlantModal deletePlantModal = new DeletePlantModal(this.plants);
         Plant plant = deletePlantModal.deletePlant();
+        System.out.println("Plant deleted");
         this.plants.remove(plant);
+        System.out.println("Plant deleted from map");
         if(repository.deletePlant(plant)){
-            System.out.println("Plant was delted from database");
         }
         updatePlantView();
     }
