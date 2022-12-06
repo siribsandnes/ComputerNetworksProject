@@ -26,6 +26,11 @@
     -fx-font-size: 17px;
 }
 
+.button:hover{
+    -fx-cursor: hand;
+    -fx-background-color: #349e63;
+}
+
 .vbox {
     -fx-border-color: black;
     -fx-border-insets: 5;

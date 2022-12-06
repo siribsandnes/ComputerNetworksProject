@@ -82,7 +82,7 @@ public class MainSceneController {
                final Label valueLabel = sensorMap.get(sensorID);
                Platform.runLater(() -> valueLabel.setText(Double.toString(newValue)));
 
-               //DISKUTER MED PAPPA
+               //DISKUTER MED PAPPA HER LEGGES current moisture til I riktig PLANT ELEMENT
                for(Map.Entry<Plant,VBox> plantVBoxEntry : this.plants.entrySet()){
                    Plant plant = plantVBoxEntry.getKey();
                    if(plant.getSensorID() == sensorID){
@@ -90,7 +90,10 @@ public class MainSceneController {
                        System.out.println("Plant " + plant.getName() + " current moist" + plant.getCurrentMoistureLevel());
                    }
 
+                   final Label feedbackLabel = feedbackMap.get(sensorID);
+                   updateMoistureFeedback(feedbackLabel, plant);
                }
+
            }));
 
         } catch(MqttException mqttException){
@@ -143,7 +146,7 @@ public class MainSceneController {
         moistureFeedback.setAlignment(Pos.CENTER);
 
 
-        vBox.getChildren().addAll(plantNameBox, sensorIdBox, plantTypeBox, desiredMoistureLevelBox, currentMoistureLevelBox);
+        vBox.getChildren().addAll(plantNameBox, sensorIdBox, plantTypeBox, desiredMoistureLevelBox, currentMoistureLevelBox, moistureFeedback);
         feedbackMap.put(plant.getSensorID(), moistureLabel);
         sensorMap.put(plant.getSensorID(), sensorValue);
 
@@ -156,5 +159,24 @@ public class MainSceneController {
             flowPane.getChildren().add(plantVBoxEntry.getValue());
         }
 
+    }
+
+    private void updateMoistureFeedback(Label feedBackLabel, Plant plant ){
+        if (plant.getCurrentMoistureLevel() - plant.getDesiredMoistureLevel() <=5 && plant.getCurrentMoistureLevel() - plant.getDesiredMoistureLevel() >= -5 ) {
+            Platform.runLater(() -> {
+                feedBackLabel.setText("Perfect amount of water");
+                feedBackLabel.setStyle("-fx-text-fill: green");
+            });
+        }else if(plant.getCurrentMoistureLevel() < plant.getDesiredMoistureLevel()){
+            Platform.runLater(() -> {
+                feedBackLabel.setText("Too much water");
+                feedBackLabel.setStyle("-fx-text-fill: blue");
+            });
+        }else{
+           Platform.runLater(() -> {
+               feedBackLabel.setText("Too little water");
+               feedBackLabel.setStyle("-fx-text-fill: red");
+           });
+        }
     }
 }
