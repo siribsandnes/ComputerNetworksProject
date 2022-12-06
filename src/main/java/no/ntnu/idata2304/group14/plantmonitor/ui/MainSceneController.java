@@ -83,6 +83,15 @@ public class MainSceneController {
         System.out.println("Init");
         sensorDataReciever = new SensorDataReciever(connectURL);
         if(repository.connect()){
+            if(!repository.getAllPlants().isEmpty()){
+                for(Plant plant : repository.getAllPlants()){
+                    VBox plantvBox = createPlantGUIElement(plant);
+                    this.plants.put(plant, plantvBox);
+                    flowPane.getChildren().add(plantvBox);
+                    flowPane.setAlignment(Pos.CENTER);
+                    flowPane.setHgap(20);
+                }
+            }
             try{
                 sensorDataReciever.connect(((sensorID, newValue) -> {
                     System.out.println("Controller: " + sensorID + ": " + newValue);
