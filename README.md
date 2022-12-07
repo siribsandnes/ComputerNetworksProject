@@ -1,4 +1,4 @@
-# [Report - Plant Monitor]
+# Report - Plant Monitor
 
 This application is the soloution to a school project in IDATA2304
 
@@ -12,66 +12,53 @@ create a mobile application version with notifications.
 
 ## Introduction
 
-Here you introduce your project in more detail. Include the following:
+Our application is made for monitoring thе moisturе lеvеl in thе soil of your plants at homе. From еxpеriеncе wе know that remembering to keep plants
+watеrеd and alivе is no еasy task in a busy schеdulе. Our solution for this is an app that will keep track of the moisture level, so you can see whеn your
+plants arе in nееd of watеr, all in one place, instead of having to check each plant manually. You placе a moisturе sеnsor in thе soil of your plants, and
+thе sеnsors connected the Raspberry PI will transmit data to an MQTT server, and thе desktop application is a subscriber to the sensors topic in the MQTT,
+so the app will receive the data published to the MQTT server every time it updates. In the application you can keep track of your plants moisture level,
+and be able to see if they need water.
 
-* Introduction of the context, the domain. Where will your solution work? Is
-  this the maritime domain, finance, private homes?
-* Introduction of the problem. What is problematic in this environment? What
-  will you solve? Why is this relevant?
-* Short introduction in the rest of the report, preferably with links to the
-  other chapters. For example, "We propose an Internet-of-Things system using
-  temperature and humidity sensors. First we describe the used
-  protocols, ["theory and technology"]. Then we describe our work process
-  in ["Methodology"]. Then the obtained [results] are presented, followed by
-  [reflection and discussion of possible improvements]." Note: don't copy this
-  text, write your own!
+The target audience of this system is plant owners, whether it be in private homes or bigger companies. We made a simple desktop application with basic
+design that is easy to use and understand. 
+
+Our group chose to create an IoT system for plant monitoring, utilizing moisture sensors. In this report we start by giving a description of the theory
+and technology used. Next we offer a description of the work process during the project in the methodology section. Our end results are expressed in the
+result section. The last section of the project report contains reflections and thoughts on improvements and future work we could implement to better our
+system.
+
 
 ## Theory and technology
 
-Here you write about the "things" you have used in your project. At the same
-time these are things that another person must know about to be able to
-understand your project.  
-Some principles to follow:
+The project makes use of a lot of different network protocols for transferring the data from the sensor node to the application node.
+It uses MQTT protocol, which is a communication protocol  that contains features which are targeted at internet of things (IoT) solutions, it is built with
+client-server architecture, and allows messages to be transmitted in both directions, from client to server, and from server to client. 
+In MQTT one has the ability to both subscribe and publish to a topic. If you are subscribed to a topic, you will get notified when something is published
+to that topic, because the MQTT server sends notifications to everyone subscribed, no matter who publishes it. There is no direct connection between the
+publishers and subscribers, so the publisher knows nothing about the subscriber, and vice versa, the topics are what connects the publisher and the
+subscriber through the server. The protocol typically runs on TCP/IP.
 
-* Write about all the relevant theory, technologies and protocols that your
-  project builds upon. For example, if you transfer data in JSON format using
-  the HTTP protocol, you should mention this and other protocols that it depends
-  on:
-    * HTTP
-    * JSON
-    * TCP
-    * IP
-    * Ethernet or wireless protocols you have used (is it 802.11x or something
-      else?)
-* Remember to mention the "why" - how is this "thing" you write about relevant
-  to your project? What does this protocol provide for your project? For
-  example, if you mention TCP - how is it important for your project? What if
-  you took away TCP, what would happen? What does TCP ensure for you?
-* Assume that the reader is your peer student - a computer science bachelor
-  student, midway through the study. Someone taking this course next year should
-  be able to read your report and understand it.
-* Don't go too deep. For example, you don't need to explain a lot of detail of
-  object-oriented programming. Every computer science student should know what
-  it is.
-* Prefer short description of many protocols instead of deep description of few
-  protocols.
-* Are there any specific aspects which are relevant for your project? If not,
-  don't describe those. For example, students sometimes spend several pages
-  describing the different methods (GET, POST, PUT) of HTTP protocol. Is that
-  important for your project? Do you use all these methods? If not, don't write
-  about these.
-* Is there any domain-knowledge the reader should know to understand the
-  project? For example, if you are monitoring temperature in a greenhouse, what
-  is known about it? Is the optimal temperature +20..30C, or is it -10..0C?
-* At the same time, remember that the focus of the course is computer networks
-  and networking protocols. Therefore, use more time describing
-  networking-related concepts.
-* Describe the theory and techniques have you used for data simulation,
-  processing and visualization?
-* What connection to your other subjects does this project have? Does it use any
-  methods learned from the IDATA2302 Algorithms and data structures? Maybe
-  something from IDATA2303 Data modelling and databases? Or maybe you apply some
-  statistical methods from ISTA1003 Statistics?
+TCP is a connection oriented transport layer protocol which ensures reliable transfer of data packets.
+(https://www.dummies.com/article/technology/information-technology/networking/general-networking/network-basics-tcpip-protocol-suite-185407/ ) TCP ensures
+reliable transfer of data by first establishing a connection to the recipient and then by having mechanisms to solve possible errors such as packet loss or packet corruption. To transfer packets from one network device to another TCP uses the IP protocol, which is a network layer protocol. The IP protocol
+makes use of the IP addresses, which are logical unique addresses that identify devices connected to the internet. IP addresses are converted to MAC
+addresses by another protocol called ARP.  The MAC address is a unique physical address each machine has, and is used on the link layer to transfer data between network entities, for example from a computer to a server. 
+
+Different programming languages have been utilized in this project. Java and Python, two object oriented languages, were used for programming the sensor
+node and the application node. Both Java and Python are high-level programming languages. The main differences between the two are the fact that Java is a
+compiled language and Python is an interpreted language. Python also supports programming paradigms such as structured and functional programming.  
+
+Another programming language used in the project is Sql. Sql is a standard language used for storing, manipulating and retrieving data from a database.(https://www.w3schools.com/sql/) Sql is something the group members learned in another course, IDATA2303 Data modeling and databases, and wanted to
+implement in this project as it enables functionality such as persistent data. 
+
+To visualize the data received from the sensors, we have created a desktop application using JavaFX which is a Java library that is used to develop
+Desktop applications as well as Rich Internet Applications (RIA). (https://www.javatpoint.com/javafx-tutorial). 
+
+The sensors used in the project are Grow moisture sensors. These sensors use a pulse frequency modulation (PFM), where they transmit the moisture level by
+sending out a pattern (square waves) on-off electrical pulses that have varying frequency. Lower frequency tells us that the soil is dry, and high
+frequency tells us that the soil is wet. Our application interprets the frequency as hertz (Hz) in a number between 0 and 30, where 0 is the wettest, and
+30 is the driest. The sensors are connected to a raspberry pi, which is a single board computer.
+
 
 # Methodology
 
