@@ -5,24 +5,24 @@ from moisturesensor import MoistureSensor, MOISTURE_1_PIN, MOISTURE_2_PIN, MOIST
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
 
-sensor1 = MoistureSensor(MOISTURE_1_PIN, "Tomat")
-sensor2 = MoistureSensor(MOISTURE_2_PIN, "Salat")
-sensor3 = MoistureSensor(MOISTURE_3_PIN, "Agurk")
+sensor1 = MoistureSensor(MOISTURE_1_PIN, "sensor1")
+sensor2 = MoistureSensor(MOISTURE_2_PIN, "sensor2")
+sensor3 = MoistureSensor(MOISTURE_3_PIN, "sensor3")
 
 mqttclient = mqtt.Client()
 mqttclient.on_connect = on_connect
-mqttclient.connect("localhost", 1883, 60)
+mqttclient.connect("129.241.152.12", 1883, 60)
 
 while (True):
     if (sensor1.value_changed):
-        message = "New value: " + str(sensor1.moisture) + " for sensor " + sensor1.sensor_name
+        message = "Moisture: " + str(sensor1.moisture)
         print(message)
-        mqttclient.publish('mqtt/sensortopic', payload = message, qos = 0, retain = False)
+        mqttclient.publish('inashouse/house/livingroom/moisture/group14/1', payload = message, qos = 0, retain = False)
     if (sensor2.value_changed):
-        message = "New value: " + str(sensor2.moisture) + " for sensor " + sensor2.sensor_name
+        message = "Moisture: " + str(sensor2.moisture)
         print(message)
-        mqttclient.publish('mqtt/sensortopic', payload = message, qos = 0, retain = False)
+        mqttclient.publish('inashouse/house/livingroom/moisture/group14/2', payload = message, qos = 0, retain = False)
     if (sensor3.value_changed):
-        message = "New value: " + str(sensor3.moisture) + " for sensor " + sensor3.sensor_name
+        message = "Moisture: " + str(sensor3.moisture)
         print(message)
-        mqttclient.publish('mqtt/sensortopic', payload = message, qos = 0, retain = False)
+        mqttclient.publish('inashouse/house/livingroom/moisture/group14/3', payload = message, qos = 0, retain = False)
