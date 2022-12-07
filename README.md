@@ -125,4 +125,5 @@ Last but not least we would like to add more sensors, such as light and temperat
 - Gibbons, H. (2020, September 21). Getting started with Grow. Retrieved December 7, 2022, from https://learn.pimoroni.com/article/assembling-grow#how-the-moisture-sensors-work 
 - Technologies, E. M. Q. (2020, August 19). How to use MQTT in python (PAHO). Retrieved December 7, 2022, from https://emqx.medium.com/how-to-use-mqtt-in-python-paho-4e622cb359f9 
 - Author unknown. (2018, July 27). What is Mqtt? Retrieved December 7, 2022, from https://inductiveautomation.com/resources/article/what-is-mqtt 
-
+- Craggs, I. (2022, May 16). MQTT vs. HTTP: Which protocol is the best for IOT or Iiot? Retrieved December 7, 2022, from https://www.hivemq.com/blog/mqtt-vs-http-protocols-in-iot-iiot/ 
+- Leiden, C., & Wilensky, M. (n.d.). Network basics: TCP/IP protocol suite. From the book: TCP/IP for dummies. Retrieved December 7, 2022, from https://www.dummies.com/article/technology/information-technology/networking/general-networking/network-basics-tcpip-protocol-suite-185407/ 
