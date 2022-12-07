@@ -121,14 +121,16 @@ Last but not least we would like to add more sensors, such as light and temperat
 
 # References
 
-Here you provide sources of information. In a written report you typically
-include list of references in the end and have only links to those in the text,
-such as [1], [2], [3]. In markdown (as this document will be) you can include
-most of the links directly in the text. Here in this section you should list the
-sources of information you have used - books, articles, Wikipedia articles,
-other online articles. For each of them you should specify at least the title,
-the author. If available: web link and year when this was published.
+ 
+https://learn.pimoroni.com/article/assembling-grow#how-the-moisture-sensors-work 
+https://emqx.medium.com/how-to-use-mqtt-in-python-paho-4e622cb359f9 
+https://inductiveautomation.com/resources/article/what-is-mqtt
+http://www.steves-internet-guide.com/mqtt-works/
 
-Note: YouTube videos are not a good source for information... Some of them are
-very good, but in general YouTube is a large trash bin, where some things turn
-out to be "edible".
+https://www.hivemq.com/blog/mqtt-vs-http-protocols-in-iot-iiot/
+
+https://www.dummies.com/article/technology/information-technology/networking/general-networking/network-basics-tcpip-protocol-suite-185407/ 
+(https://www.w3schools.com/sql/)
+
+https://www.javatpoint.com/javafx-tutorial
+
