@@ -22,9 +22,8 @@ and be able to see if they need water.
 The target audience of this system is plant owners, whether it be in private homes or bigger companies. We made a simple desktop application with basic
 design that is easy to use and understand. 
 
-Our group chose to create an IoT system for plant monitoring, utilizing moisture sensors. In this report we start by giving a description of the theory
-and technology used. Next we offer a description of the work process during the project in the methodology section. Our end results are expressed in the
-result section. The last section of the project report contains reflections and thoughts on improvements and future work we could implement to better our
+Our group chose to create an IoT system for plant monitoring, utilizing moisture sensors. In this report we start by giving a description of the [theory and technology](#theory-and-technology) used. Next we offer a description of the work process during the project in the [methodology](#methodology) section. Our end results are expressed in the
+[result](#results) section. The last section of the project report contains a [discussion](#discussion) and [reflections and thoughts](#conclusion-and-future-work) on improvements and future work we could implement to better our
 system.
 
 
