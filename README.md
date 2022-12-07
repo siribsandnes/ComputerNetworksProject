@@ -127,3 +127,5 @@ Last but not least we would like to add more sensors, such as light and temperat
 - Author unknown. (2018, July 27). What is Mqtt? Retrieved December 7, 2022, from https://inductiveautomation.com/resources/article/what-is-mqtt 
 - Craggs, I. (2022, May 16). MQTT vs. HTTP: Which protocol is the best for IOT or Iiot? Retrieved December 7, 2022, from https://www.hivemq.com/blog/mqtt-vs-http-protocols-in-iot-iiot/ 
 - Leiden, C., & Wilensky, M. (n.d.). Network basics: TCP/IP protocol suite. From the book: TCP/IP for dummies. Retrieved December 7, 2022, from https://www.dummies.com/article/technology/information-technology/networking/general-networking/network-basics-tcpip-protocol-suite-185407/ 
+- W3Schools. (n.d.). SQL Tutorial. Retrieved December 7, 2022, from https://www.w3schools.com/sql/ 
+- 
