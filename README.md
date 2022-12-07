@@ -92,7 +92,7 @@ There are two different classes responsible for logic:
 1) A class responsible for connecting to the MQTT client, subscribing to the correct topic and defining what to do next when data has been received. 
 2) A class responsible for connecting to the local database defining different methods for accessing and manipulating data in the database.
 
-The UI package contains the classes responsible for the GUI. Two of the classes simply create GUI elements using java, while the third is the controller which is connected to the FXML which defines the user interface. 
+The UI package contains the classes responsible for the GUI. Two of the classes simply create GUI elements using java, while the third is the controller which is connected to the FXML that defines the user interface. 
 
 The controller defines the possible actions for when a user interacts with the application. What happens when the user performs an action, i.e clicks a button.  It works as a mediator between a user and application.
 
@@ -105,7 +105,7 @@ In addition to the sensor node and the visualization node there is also a mySQL 
 
 The solution and code written on the sensor node is working in the way we intended. Sensor data is successfully sent to the MQTT broker, this provides us with reassurance that the TCP connection is successful. The visualization node also ended up operating successfully, and we know that the numbers on the sensor side is matched up to the numbers we received on the visualization side, in the app. We connected the Raspberry Pi to a screen, so we were able to look at the data transmitted from the sensors to the Raspberry Pi, while simultaneously watching the data transmitted from the MQTT server to our application. This made it possible to confirm that the data is correct.
 
-The overall user experience the application provides, also ended up functioning well, and through testing ourselves and conducting a user test, this was confirmed. A negative we encountered in our application is that we have not implemented a solution that enables the application to send out notifications. For the time being, you can only view the moisture levels when you have the application running on the computer. To rectify this inconvenience we could have integrated a function for sending SMS notifications, reminding users to check on their plants, if the moisture levels are not in the target area.
+The overall user experience the application provides, ended up functioning well. Through testing the app ourselves, and conducting a user test, this was confirmed. A negative we encountered in our application is that we have not implemented a solution that enables the application to send out notifications. For the time being, you can only view the moisture levels when you have the application running on the computer. To rectify this inconvenience we could have integrated a function for sending SMS notifications, reminding users to check on their plants, if the moisture levels are not in the target area.
 
 
 # Conclusion and future work
