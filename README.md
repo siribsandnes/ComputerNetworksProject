@@ -1,65 +1,14 @@
-# Report template
+# [Report - Plant Monitor]
 
-This document provides a template for the project report in IDATA2304. The
-structure follows the same principles used in other reports (including bachelor
-projects).
-
-If you use this file as a template, **remember to delete all the "dummy texts"**
-.
-Your report must look like a proper engineer's report, not like a filled-in
-online form! A general tip - write the report like a story explaining your
-reasoning and the result. Also - the report is not about YOU, it is about the
-WORK you have done. So don't write a "letter to my mom" complaining how hard you
-have struggled with configuring MQTT and a laptop crash. As harsh as this may
-sound, this is a report for peer engineers who are interested in the work and in
-the professional result, not in emotions of individuals.
-
-The rest of the text is a template that you can use for the report.
-
-If you are new to Markdown syntax (the suggested way for writing the report),
-there are plenty of documentation sites and tutorials online, for
-example, [Basic
-Syntax article](https://www.markdownguide.org/basic-syntax/) in the Markdown
-Guide.
-
-# [Title of your project here]
-
-Here you can mention that this is a school project in the course IDATA2304
-Computer networks. Not mandatory, but could be useful for readers other than the
-teachers.
+This application is the soloution to a school project in IDATA2304
 
 ## Abstract
 
-This is the shortest version of your project's description. Think of a busy
-person who has 1 minute to get familiar with what this is about. The abstract
-should be short but descriptive.
-Suggested content in the abstract:
-
-* Describe the background and importance of the situation, 1-2 sentences
-* Describe a problem, 1-2 sentences
-* Describe your proposed solution, 1-3 sentences
-* Describe the results you have achieved, 1-3 sentences
-* Describe the experiments or evaluation you have done
-* Conclusions and possible future work
-
-Here is an example abstract of an imaginary project:
-Modern urban lifestyle has high demands on the individuals. We have busy
-schedules and need to remember many things. One of the most irritating things in
-a hectic morning is the inability to find your keys or wallet. In this
-project we propose a novel solution for tracking of daily-life objects, such as
-your wallet or keychain. Users attach smart chips with Bluetooth communication
-to each important asset they want to track. This gives the ability to use a
-smartphone to locate the missing item. We have created a prototype system,
-described in this report. We have performed a user study with 20 participants
-who were given the task to locate a wallet inside a living room.
-The results show that our solution helps the users to locate their items within
-2 minutes the first time, and within 45 seconds when they are using the app
-repeatedly. Possible future research directions include design of a robust and
-lightweight RFID tag, and possibilities to locate ones items using a mobile
-phone of a family member.
-
-Note: in your project you may not have user tests. Describe the analysis and
-evaluation you have had.
+Taking care of plants requires a lot of attention, and a good memory, or at least it can require those things if you opt to do it the old fashioned way.
+The main problem is that many owners forget to water plants, or don't know when to water a plant, and end up with dead dried up plants. This project
+offers a soloution to that exact problem. The moisture sensors monitor the moisture levels in the soil of the plants, and transfer the data to the desktop
+application, which then displays these values and lets the user know if the plant needs watering or not. Possible future development plans would be to
+create a mobile application version with notifications.
 
 ## Introduction
 
