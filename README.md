@@ -72,16 +72,35 @@ Some best-practises that were followed are naming conventions of variables and c
 
 # Results
 
-Here you describe the results you have obtained. Some considerations:
+The result is easier explained if we divide it in two, a sensor node and a visualization node, which works together as a whole. 
 
-* Have a top-down approach. Start with a short introduction, then go more into
-  details. For example, a good way to start the section could be with a picture
-  showing the overall architecture of the solution and a short text describing
-  it. After that you can go into more details on each component of the system.
-* Describe the structure you got, the general principles of how it works.
-* You could also include some screenshots showing the system. How could the
-  reader get an impression of the result without running the system?
-* No need to include code in the report, all the code is in the repository.
+### Sensor Node: 
+The sensor node consists of three moisture sensors connected to a Raspberry PI. The Raspberry PI runs a python program consisting of two files, a Moisture Sensor Class and a connect function. 
+
+The Moisture Sensor class is responsible for setting up the right configuration to access the signal transmitted from the sensors through the pins and evaluate this signal. The sensors transmit electrical signals from 0 to 3,3 volt to the raspberry. The signal is a square wave pattern which has to be interpreted to make sense to the user.
+
+The connect function is responsible for connecting the program to the right MQTT broker, and publishing data on the defined topics. It uses a library known as Paho made by Eclipse which is a MQTT implementation. 
+
+### Visualization node: 
+This is the desktop application where the data sent from the sensors are visualized. It is a program with many different responsibilities and functionalities: The program connects to a MQTT server to access the data, creates and displays the GUI with all its functionalities and connects to a locally run database. 
+
+The program code is split into three packages based on the responsibility of the classes in the packages, a data package, a logic package and a ui package. 
+
+The data package contains classes responsible for “storing data”, such as the Plant class which stores info about the different Plants created by the user in the application. 
+
+There are two different classes responsible for logic:
+
+A class responsible for connecting to the MQTT client, subscribing to the correct topic and defining what to do next when data has been received. 
+A class responsible for connecting to the local database defining different methods for accessing and manipulating data in the database.
+
+The UI package contains the classes responsible for the GUI. Two of the classes simply create GUI elements using java, while the third is the controller which is connected to the FXML which defines the user interface. 
+
+The controller defines the possible actions for when a user interacts with the application. What happens when the user performs an action, i.e clicks a button.  It works as a mediator between a user and application.
+
+The application is run from the MainApp, which is the class responsible for loading the FXML file and setting the stage.
+
+In addition to the sensor node and the visualization node there is also a mySQL database stored locally on Siris computer which is run using dBeaver. This is the database the application connects to and saves the plants in. 
+
 
 # Discussion
 
