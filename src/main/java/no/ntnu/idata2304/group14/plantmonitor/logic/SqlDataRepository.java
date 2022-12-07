@@ -17,6 +17,11 @@ public class SqlDataRepository implements DataRepository {
 
     private Connection connection;
 
+    /**
+     * Connects to the database
+     *
+     * @return true if connection was successfull, false if not
+     */
     @Override
     public boolean connect(){
      boolean success = false;
@@ -36,6 +41,11 @@ public class SqlDataRepository implements DataRepository {
      return success;
     }
 
+    /**
+     * Gets a list of all plant elements in the database.
+     *
+     * @return a list of all plants in the database
+     */
     @Override
     public List<Plant> getAllPlants() {
         List<Plant> plants = new ArrayList<>();
@@ -57,6 +67,11 @@ public class SqlDataRepository implements DataRepository {
         return plants;
     }
 
+    /**
+     * Deletes a specified plant in the database
+     * @param plant the plant to delete
+     * @return true if plant was deleted, false if not
+     */
     @Override
     public boolean deletePlant(Plant plant) {
         boolean deleted = false;
@@ -73,6 +88,11 @@ public class SqlDataRepository implements DataRepository {
         return deleted;
     }
 
+    /**
+     * Adds a plant to the database
+     * @param plant the plant to add to the database
+     * @return true if plant was added, false if not.
+     */
     @Override
     public boolean addPlant(Plant plant) {
         boolean added = false;

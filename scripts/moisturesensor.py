@@ -60,4 +60,3 @@ class MoistureSensor(object):
     def sensor_name(self):
         return self._sensor_name
 
-# Slutt MoistureSensor klasse
