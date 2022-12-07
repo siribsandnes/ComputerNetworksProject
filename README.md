@@ -90,8 +90,8 @@ The data package contains classes responsible for “storing data”, such as th
 
 There are two different classes responsible for logic:
 
-A class responsible for connecting to the MQTT client, subscribing to the correct topic and defining what to do next when data has been received. 
-A class responsible for connecting to the local database defining different methods for accessing and manipulating data in the database.
+1) A class responsible for connecting to the MQTT client, subscribing to the correct topic and defining what to do next when data has been received. 
+2) A class responsible for connecting to the local database defining different methods for accessing and manipulating data in the database.
 
 The UI package contains the classes responsible for the GUI. Two of the classes simply create GUI elements using java, while the third is the controller which is connected to the FXML which defines the user interface. 
 
