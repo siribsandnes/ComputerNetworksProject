@@ -85,6 +85,9 @@ public class MainSceneController {
         updatePlantView();
     }
 
+    /**
+     * Initializes the application.
+     */
     @FXML
     void initialize(){
         System.out.println("Init");
@@ -181,6 +184,9 @@ public class MainSceneController {
         return vBox;
     }
 
+    /**
+     * Updates the plant view
+     */
     private void updatePlantView(){
         flowPane.getChildren().clear();
         for(Map.Entry<Plant,VBox> plantVBoxEntry : this.plants.entrySet()){
@@ -189,6 +195,11 @@ public class MainSceneController {
 
     }
 
+    /**
+     * Updates the feedback values of the plants
+     * @param feedBackLabel the label to update
+     * @param plant the plant to update
+     */
     private void updateMoistureFeedback(Label feedBackLabel, Plant plant ){
         if (plant.getCurrentMoistureLevel() - plant.getDesiredMoistureLevel() <=5 && plant.getCurrentMoistureLevel() - plant.getDesiredMoistureLevel() >= -5 ) {
             Platform.runLater(() -> {

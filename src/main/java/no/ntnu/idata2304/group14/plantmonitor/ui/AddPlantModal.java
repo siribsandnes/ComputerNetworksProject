@@ -32,6 +32,10 @@ public class AddPlantModal {
     private Button cancelButton = new Button("Cancel");
     private VBox layout;
 
+    /**
+     * Creates a GUI element in the form of a modal for adding a plant.
+     * @return The plant created
+     */
     public Plant addPlant() {
         window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);

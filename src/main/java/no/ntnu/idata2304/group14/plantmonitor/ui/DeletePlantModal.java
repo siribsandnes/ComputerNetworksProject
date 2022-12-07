@@ -16,6 +16,10 @@ import no.ntnu.idata2304.group14.plantmonitor.data.Plant;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Creates a GUI element in the form of a modal for deleting a plant
+ * @return The plant to delete
+ */
 public class DeletePlantModal {
     private HashMap<Plant, VBox> plants;
 
