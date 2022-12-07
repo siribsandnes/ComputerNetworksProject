@@ -104,14 +104,20 @@ In addition to the sensor node and the visualization node there is also a mySQL 
 
 # Discussion
 
-Here you can reflect on the result. What is working well? What is not working
-well and why?
+The solution and code written on the sensor node is working in the way we intended. Sensor data is successfully sent to the MQTT broker, this provides us with reassurance that the TCP connection is successful. The visualization node also ended up operating successfully, and we know that the numbers on the sensor side is matched up to the numbers we received on the visualization side, in the app. We connected the Raspberry Pi to a screen, so we were able to look at the data transmitted from the sensors to the Raspberry Pi, while simultaneously watching the data transmitted from the MQTT server to our application. This made it possible to confirm that the data is correct.
+
+The overall user experience the application provides, also ended up functioning well, and through testing ourselves and conducting a user test, this was confirmed. A negative we encountered in our application is that we have not implemented a solution that enables the application to send out notifications. For the time being, you can only view the moisture levels when you have the application running on the computer. To rectify this inconvenience we could have integrated a function for sending SMS notifications, reminding users to check on their plants, if the moisture levels are not in the target area.
+
 
 # Conclusion and future work
 
-Here you summarize the work shortly, the status. Also, here you identify the
-potential work in the future. Note: think in general - how could this work be
-continued (by your group or by others)?
+In conclusion we were able to create a project that fulfills the requirements. Our solution consists of a sensor node which publishes data to a MQTT broker and an application node which subscribes to the data from the MQTT and displays it in an application. We have also done some extra work such as using physical sensors and a raspberry pi, and incorporating a database with the application, as well as actually creating an application to display the data, not only using the terminal.
+
+If we were to further develop this app we would firstly create a mobile application instead of a desktop application. That would make the application more accessible and user-friendly and is more appropriate. We would also implement push notifications and reminders to the user, so that they don't have to remember to check the app. 
+
+We would also like to implement more functionality in the application such as enabling the user to see the history, how was the plant doing last week? And graphs and summaries such as average moisture level, and so on. 
+Last but not least we would like to add more sensors, such as light and temperature. 
+
 
 # References
 
