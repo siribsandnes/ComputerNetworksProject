@@ -62,12 +62,13 @@ frequency tells us that the soil is wet. Our application interprets the frequenc
 
 # Methodology
 
-Here you can write about the way you have worked. You don't need to write much
-about how you organized sprints, this documentation will be handled separately.
-Again - think about the next engineer-reader. What does the engineer need to
-know about the way you worked? Did you do some user tests? Experiments? How did
-you measure, evaluate? Any best-practices you followed? What must the reader
-understand to be able to interpret the results properly?
+The first five weeks of working on the project we scheduled group meetings twice a week, where the first meeting was spent planning and delegating the workload for the upcoming sprint and creating issues in github. The second meeting was spent working on the issues and tasks set in the first meeting.
+The last few weeks the group communicated mostly online to delegate tasks, which resulted in a less structured and organized issueboard.
+
+Our group organized a user test with another group of students in the computer networks course. The test consisted of placing the sensors in soil that had different moisture levels, one pot had very wet soil, one had very dry soil, and the last one was somewhere in between the two. From this test they were able to confirm that the data transmitted from the sensors to the application was correct. The feedback we received was positive, and they were able to see that the moisture levels in the soil correlated with the moisture levels displayed in the application. They also provided us with feedback on the user experience of the applications, and confirmed that the application was easy to understand and interact with.
+
+Some best-practises that were followed are naming conventions of variables and classes, code commenting and the use of indentations. This was all done to make sure that the code is easy to read and understand. 
+
 
 # Results
 
