@@ -54,7 +54,7 @@ To visualize the data received from the sensors, we have created a desktop appli
 Desktop applications as well as Rich Internet Applications (RIA). (https://www.javatpoint.com/javafx-tutorial). 
 
 The sensors used in the project are Grow moisture sensors. These sensors use a pulse frequency modulation (PFM), where they transmit the moisture level by
-sending out a pattern (square waves) on-off electrical pulses that have varying frequency. Lower frequency tells us that the soil is dry, and high
+sending out a pattern (square waves) made by on-off electrical pulses that have varying frequency. Lower frequency tells us that the soil is dry, and high
 frequency tells us that the soil is wet. Our application interprets the frequency as hertz (Hz) in a number between 0 and 30, where 0 is the wettest, and
 30 is the driest. The sensors are connected to a raspberry pi, which is a single board computer.
 
