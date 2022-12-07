@@ -121,7 +121,6 @@ Last but not least we would like to add more sensors, such as light and temperat
 
 # References
 
- 
 - Gibbons, H. (2020, September 21). Getting started with Grow. Retrieved December 7, 2022, from https://learn.pimoroni.com/article/assembling-grow#how-the-moisture-sensors-work 
 - Technologies, E. M. Q. (2020, August 19). How to use MQTT in python (PAHO). Retrieved December 7, 2022, from https://emqx.medium.com/how-to-use-mqtt-in-python-paho-4e622cb359f9 
 - Author unknown. (2018, July 27). What is Mqtt? Retrieved December 7, 2022, from https://inductiveautomation.com/resources/article/what-is-mqtt 
